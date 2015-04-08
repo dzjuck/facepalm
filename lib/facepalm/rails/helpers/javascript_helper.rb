@@ -36,6 +36,7 @@ module Facepalm
           init_js = <<-JAVASCRIPT
             FB.init({
               appId  : '#{ app_id }',
+              version : 'v2.0',
               status : #{ options[:status] },
               cookie : #{ options[:cookie] },
               xfbml  : #{ options[:xfbml] },
@@ -46,7 +47,7 @@ module Facepalm
 
           init_js = "FB._https = true; #{ init_js }" if request.ssl?
 
-          js_url = "connect.facebook.net/#{options[:locale]}/all.js"
+          js_url = "connect.facebook.net/#{options[:locale]}/sdk.js"
           js_url << "?#{Time.now.change(:min => 0, :sec => 0, :usec => 0).to_i}" if options[:weak_cache]
 
           if options[:async]
