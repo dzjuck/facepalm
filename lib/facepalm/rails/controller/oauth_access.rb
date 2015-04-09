@@ -80,7 +80,7 @@ module Facepalm
                               :fb_return_to => facepalm_auth_return_code
                           )
             )
-            ::Rails.logger.error("User #{current_facebook_user} is not authenticated\nRedirecting to #{redirect_to}")
+            ::Rails.logger.fatal("User #{current_facebook_user} is not authenticated\nRedirecting to #{redirect_to}")
             redirect_from_iframe(redirect_to)
 
             false
