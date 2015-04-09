@@ -74,19 +74,19 @@ module Facepalm
           if current_facebook_user.try(:authenticated?)
             true
           else
-            redirect_from_iframe(
-              facepalm.oauth_client.url_for_oauth_code(
-                :permissions => permissions,
-                :callback => facepalm_endpoint_url(
-                  :fb_return_to => facepalm_auth_return_code
-                )
-              )
+            redirect_to = facepalm.oauth_client.url_for_oauth_code(
+                            :permissions => permissions,
+                            :callback => facepalm_endpoint_url(
+                              :fb_return_to => facepalm_auth_return_code
+                          )
             )
+            ::Rails.logger.error("User #{current_facebook_user} is not authenticated\nRedirecting to #{redirect_to}")
+            redirect_from_iframe(redirect_to)
 
             false
           end
         end
-        
+
         # Encrypting return URL to pass it to Facebook
         def facepalm_auth_return_code
           facepalm_url_encryptor.encrypt(
