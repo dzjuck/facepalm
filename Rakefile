@@ -19,12 +19,12 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = 'facepalm'
     gem.summary = "Facebook integration for Rack & Rails application"
-    gem.email = "rene.dekart@gmail.com"
-    gem.homepage = "http://github.com/dekart/facepalm"
-    gem.authors = ["Aleksey V. Dmitriev"]
+    gem.email = "vk.stelmakh@gmail.com"
+    gem.homepage = "http://github.com/stelmakh/facepalm"
+    gem.authors = ["Aleksey V. Dmitriev", "Volodymyr Stelmakh"]
 
     gem.add_dependency "ie_iframe_cookies", '~> 0.1.2'
-    gem.add_dependency "koala", '~> 1.2.1'
+    gem.add_dependency "koala", '~> 2.0'
   end
 
   Jeweler::GemcutterTasks.new
