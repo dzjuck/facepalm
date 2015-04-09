@@ -17,8 +17,8 @@ begin
   require 'jeweler'
 
   Jeweler::Tasks.new do |gem|
-    gem.name = 'facepalm'
-    gem.summary = "Facebook integration for Rack & Rails application"
+    gem.name = 'facepalm2'
+    gem.summary = "Facebook v2 integration for Rack & Rails application"
     gem.email = "vk.stelmakh@gmail.com"
     gem.homepage = "http://github.com/stelmakh/facepalm"
     gem.authors = ["Aleksey V. Dmitriev", "Volodymyr Stelmakh"]
