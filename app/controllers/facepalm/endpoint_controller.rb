@@ -11,7 +11,7 @@ module Facepalm
         if params[:code]
           begin
             # Decrypting return URL and redirecting to it
-            redirect_to(facebook_canvas_page_url + facepalm_url_encryptor.decrypt(params[:fb_return_to].to_s))
+            redirect_to(facebook_canvas_page_url + facepalm_url_encryptor.decrypt(URI.unescape(params[:fb_return_to].to_s))
           rescue ActiveSupport::MessageEncryptor::InvalidMessage
             ::Rails.logger.fatal "Failed to decrypt return URL: #{ params[:fb_return_to] }"
 
