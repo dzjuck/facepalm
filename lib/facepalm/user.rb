@@ -41,6 +41,7 @@ module Facepalm
 
 
     def initialize(options = {})
+      ::Rails.logger.info("Options: #{options.inspect}")
       @options = options
     end
 

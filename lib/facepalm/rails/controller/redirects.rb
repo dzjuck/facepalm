@@ -13,7 +13,7 @@ module Facepalm
         # Overrides ActionController::Base#redirect_to to pass signed_request in flash[]
         def redirect_to_with_signed_request(*args)
           flash[:signed_request] = fb_signed_request if fb_canvas?
-          
+
           redirect_to_without_signed_request(*args)
         end
 
@@ -23,7 +23,7 @@ module Facepalm
           redirect_url = url_options.is_a?(String) ? url_options : url_for(url_options)
 
           logger.info "Redirecting from IFRAME to #{ redirect_url }"
-          
+
           respond_to do |format|
             format.html do
               render(
@@ -31,7 +31,7 @@ module Facepalm
                 :layout => false
               )
             end
-            
+
             format.js do
               render(
                 :text   => iframe_redirect_js_code(redirect_url),
@@ -61,7 +61,7 @@ module Facepalm
             </head></html>
           }
         end
-        
+
         # Generates JavaScript code to redirect user
         #
         # @param target_url   An URL to redirect the user to
