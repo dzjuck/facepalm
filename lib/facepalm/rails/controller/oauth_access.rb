@@ -77,7 +77,7 @@ module Facepalm
             redirect_to = facepalm.oauth_client.url_for_oauth_code(
                             :permissions => permissions,
                             :callback => facepalm_endpoint_url(
-                              :fb_return_to => facepalm_auth_return_code
+                              :fb_return_to => ::Rack::Utils.escape(facepalm_auth_return_code)
                             )
             )
             ::Rails.logger.fatal("User #{current_facebook_user} is not authenticated\nRedirecting to #{redirect_to}")
