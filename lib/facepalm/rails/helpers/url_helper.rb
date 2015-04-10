@@ -16,7 +16,7 @@ module Facepalm
 
             url = super(options.except(:signed_request))
 
-            canvas ? facebook_canvas_page_url + url : url
+            canvas ? URI.join(facebook_canvas_page_url, url).to_s : url
           else
             super
           end
