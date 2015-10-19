@@ -22,7 +22,7 @@ module Facepalm
         def redirect_from_iframe(url_options)
           redirect_url = url_options.is_a?(String) ? url_options : url_for(url_options)
 
-          logger.info "Redirecting from IFRAME to #{ redirect_url }"
+          logger.info "Redirecting from IFRAME to #{ redirect_url }, url_options #{ url_options.inspect }"
 
           respond_to do |format|
             format.html do
